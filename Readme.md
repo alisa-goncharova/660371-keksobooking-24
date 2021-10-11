@@ -2,7 +2,6 @@
 
 * Студент: [Алиса Гончарова](https://up.htmlacademy.ru/javascript/24/user/660371).
 * Наставник: [Михаил Кислый](https://htmlacademy.ru/profile/smart-grizzly).
-
 ---
 
 _Не удаляйте и не изменяйте самовольно файлы и папки:_
