@@ -1,18 +1,35 @@
-const getRandomNumberInt = (startNumber, endNumber) => {
-  if(startNumber >= 0 && endNumber >= 0 && endNumber - startNumber > 0){
-    return Math.floor(startNumber + Math.random()  * (endNumber + 1 - startNumber));
-  }
-  return 'Введены не корректные значения';
+import {getRandomNumberInt, getMapCoordinates} from './helpers/get-random-number.js';
+import {getFakeDataValue, getFakeDataValues,  places, times, features, photos} from './helpers/get-fake-data.js';
+import {getAvatarData} from './helpers/get-avatar-data.js';
+
+const getdataUsers = () =>{
+  const author = new Object({
+    avatar: `img/avatars/user${getAvatarData()}.png`,
+  });
+  const location = new Object({
+    lat: `${getMapCoordinates(35.65000, 35.70000, 5)}`,
+    lng: `${getMapCoordinates(139.70000, 139.80000, 5)}`,
+  });
+  const offer = new Object({
+    title: 'Заголовок 1',
+    adress: `${location.lat} , ${location.lng}`,
+    price: `${getRandomNumberInt(1,10000)}`,
+    type: `${getFakeDataValue(places)}`,
+    rooms: `${getRandomNumberInt(1,800)}`,
+    guests: `${getRandomNumberInt(1,1000)}`,
+    checkin: `${getFakeDataValue(times)}`,
+    checkout: `${getFakeDataValue(times)}`,
+    features: getFakeDataValues(features),
+    description: 'Описание помещения',
+    photos: getFakeDataValues(photos),
+  });
+  return {
+    author: author,
+    offer: offer,
+    location: location,
+  };
 };
 
-getRandomNumberInt(1, 100);
+const dataUsers = Array.from({length: 10}, getdataUsers);
 
-const getMapCoordinates = (startNumber, endNumber, count) => {
-  if(startNumber >= 0 && endNumber >= 0 && endNumber - startNumber > 0){
-    const number = startNumber - 0.5 + Math.random() * (endNumber - startNumber + 1);
-    return Number(number.toFixed(count));
-  }
-  return 'Введены не корректные значения';
-};
-
-getMapCoordinates(1, 3, 5);
+console.log(dataUsers);
