@@ -1,5 +1,5 @@
 import {getRandomNumberInt, getMapCoordinates} from './helpers/get-random-number.js';
-import {getFakeDataValue, getFakeDataValues,  places, times, features, photos} from './helpers/get-fake-data.js';
+import {getFakeDataValue, getFakeDataValues,  PLACES, TIMES, FEATURES, PHOTOS} from './helpers/get-fake-data.js';
 import {getAvatarData} from './helpers/get-avatar-data.js';
 
 const getdataUsers = () =>{
@@ -12,16 +12,16 @@ const getdataUsers = () =>{
   });
   const offer = new Object({
     title: 'Заголовок 1',
-    adress: `${location.lat} , ${location.lng}`,
+    address: `${location.lat} , ${location.lng}`,
     price: `${getRandomNumberInt(1,10000)}`,
-    type: `${getFakeDataValue(places)}`,
+    type: `${getFakeDataValue(PLACES)}`,
     rooms: `${getRandomNumberInt(1,800)}`,
     guests: `${getRandomNumberInt(1,1000)}`,
-    checkin: `${getFakeDataValue(times)}`,
-    checkout: `${getFakeDataValue(times)}`,
-    features: getFakeDataValues(features),
+    checkin: `${getFakeDataValue(TIMES)}`,
+    checkout: `${getFakeDataValue(TIMES)}`,
+    features: getFakeDataValues(FEATURES),
     description: 'Описание помещения',
-    photos: getFakeDataValues(photos),
+    photos: getFakeDataValues(PHOTOS),
   });
   return {
     author: author,
@@ -30,6 +30,5 @@ const getdataUsers = () =>{
   };
 };
 
-const dataUsers = Array.from({length: 10}, getdataUsers);
+Array.from({length: 10}, getdataUsers);
 
-console.log(dataUsers);
