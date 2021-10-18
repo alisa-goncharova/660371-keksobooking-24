@@ -2,7 +2,7 @@ import {getRandomNumberInt, getMapCoordinates} from './helpers/get-random-number
 import {getFakeDataValue, getFakeDataValues,  PLACES, TIMES, FEATURES, PHOTOS} from './helpers/get-fake-data.js';
 import {getAvatarData} from './helpers/get-avatar-data.js';
 
-const getdataUsers = () =>{
+const getDataUsers = () =>{
   const author = new Object({
     avatar: `img/avatars/user${getAvatarData()}.png`,
   });
@@ -30,5 +30,5 @@ const getdataUsers = () =>{
   };
 };
 
-Array.from({length: 10}, getdataUsers);
+Array.from({length: 10}, getDataUsers);
 
