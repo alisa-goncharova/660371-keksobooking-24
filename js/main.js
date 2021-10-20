@@ -1,4 +1,4 @@
-import {getDataUsers} from './helpers/data.js';
+import {getGeneratingMarkupElements} from './helpers/generating-markup-elements.js';
 
-Array.from({length: 10}, getDataUsers);
+getGeneratingMarkupElements();
 
