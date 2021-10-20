@@ -23,10 +23,8 @@ const getGeneratingMarkupElements = () =>{
     //вывод необходимых иконок
     getDataFeatures(elem.offer.features, recording.querySelector('.popup__features'));
     recording.querySelector('.popup__description').textContent = elem.offer.description;
-    // popup__photos сделать
+    // вывод фотографий
     getDataPhotos(elem.offer.photos, recording.querySelector('.popup__photos'));
-    // recording.querySelector('.popup__photos').textContent = getDataPhotos(elem.offer.photos);
-    // recording.querySelector('.popup__photos').textContent = getDataPhotos(elem.offer.photos);
     recording.querySelector('.popup__avatar').src = `${elem.author.avatar}`;
     container.appendChild(recording);
   });
