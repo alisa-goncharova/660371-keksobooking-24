@@ -1,3 +1,6 @@
+const IMAGE_WIDTH = '65px', //временные стили
+  IMAGE_HEIGHT = '60px';
+
 const getDataCheckItem = (element) =>{
   switch (element) {
     case 'palace': return 'Дворец';
@@ -30,8 +33,8 @@ const getDataPhotos = (data, container) =>{
     const image = document.createElement('img');
     image.src = imageItem;
     image.classList.add('popup__photo');
-    image.style.width = '65px';
-    image.style.height = '60px';
+    image.style.width = IMAGE_WIDTH;
+    image.style.height = IMAGE_HEIGHT;
     container.append(image);
   });
 };

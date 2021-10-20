@@ -1,12 +1,16 @@
 import  {getDataUsers} from './data.js';
 import {getDataCheckItem, getDataFeatures, getDataPhotos} from './get-data-check.js';
 
-const dataUsers = Array.from({length: 10}, getDataUsers);
-const container = document.querySelector('.map__canvas');
-//временные стили, которые потом удалятся
-container.style.height = '100%';
-container.style.columnCount = '2';
-container.style.padding = '40px 40px';
+const CONTAINER_HEIGHT = '100%', //временные стили, которые потом удалятся
+  CONTAINER_COLUMN = '2',
+  CONTAINER_PADDING = '40px 40px',
+  COUNT = 1;
+const dataUsers = Array.from({length: COUNT}, getDataUsers),
+  container = document.querySelector('.map__canvas');
+
+container.style.height = CONTAINER_HEIGHT;
+container.style.columnCount = CONTAINER_COLUMN;
+container.style.padding = CONTAINER_PADDING;
 //клонируем фрагмент
 const fragment = document.querySelector('#card');
 
