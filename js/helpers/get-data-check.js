@@ -38,5 +38,5 @@ const getDataPhotos = (data, container) =>{
     container.append(image);
   });
 };
-export {getDataCheckItem, getDataFeatures, getDataPhotos};
+export { getDataCheckItem, getDataFeatures, getDataPhotos };
 

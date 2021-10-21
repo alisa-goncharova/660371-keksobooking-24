@@ -1,5 +1,5 @@
-import  {getDataUsers} from './data.js';
-import {getDataCheckItem, getDataFeatures, getDataPhotos} from './get-data-check.js';
+import { getDataUsers } from './data.js';
+import { getDataCheckItem, getDataFeatures, getDataPhotos } from './get-data-check.js';
 
 const CONTAINER_HEIGHT = '100%', //временные стили, которые потом удалятся
   CONTAINER_COLUMN = '2',
@@ -34,4 +34,4 @@ const getGeneratingMarkupElements = () =>{
   });
 };
 
-export {getGeneratingMarkupElements};
+export { getGeneratingMarkupElements };

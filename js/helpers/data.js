@@ -1,6 +1,6 @@
-import {getRandomNumberInt, getMapCoordinates} from './get-random-number.js';
-import {getFakeDataValue, getFakeDataValues,  PLACES, TIMES, FEATURES, PHOTOS} from './get-fake-data.js';
-import {getAvatarData} from './get-avatar-data.js';
+import { getRandomNumberInt, getMapCoordinates } from './get-random-number.js';
+import { getFakeDataValue, getFakeDataValues,  PLACES, TIMES, FEATURES, PHOTOS } from './get-fake-data.js';
+import { getAvatarData } from './get-avatar-data.js';
 
 const getDataUsers = () =>{
   const author = new Object({
@@ -29,5 +29,5 @@ const getDataUsers = () =>{
     location: location,
   };
 };
-export {getDataUsers};
+export { getDataUsers };
 
