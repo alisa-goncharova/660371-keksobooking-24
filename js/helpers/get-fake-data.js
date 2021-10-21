@@ -14,5 +14,5 @@ const getFakeDataValues = (dataArr) =>{
   const arrLength = Number(getRandomNumberInt(0, dataArr.length-1));
   return dataArr.slice(0, (dataArr.length-1) - arrLength-1);
 };
-export {getFakeDataValue, getFakeDataValues};
+export { getFakeDataValue, getFakeDataValues };
 
