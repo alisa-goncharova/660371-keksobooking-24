@@ -1,21 +1,12 @@
 import { getGeneratingMarkupElements } from './helpers/generating-markup-elements.js';
-import { switchForm, submittingForm,  form } from './helpers/form.js';
+import { switchForm, submittingForm,  form, formValues, disabledItem } from './helpers/form.js';
+import { getSelectedItem } from './helpers/get-selected-item.js';
 
 getGeneratingMarkupElements(); // генерация фейковых данных
 switchForm(); // переключение формы в (не) активное состояние
 switchForm();
-//событие на отправку формы
-form.addEventListener('submit', (evt) => submittingForm(evt));
-
-
-
-
-
-
-
-
-//событие на выбор количества комнат
-// numberOfRooms.addEventListener('change', ()=> getSelectedItemRoom(numberOfRooms, numberOfSeats));
-//событие на выбор количества мест
-// numberOfSeats.addEventListener('change', ()=>{});
-
+disabledItem(); //блокируем изменение select количество мест
+getSelectedItem(formValues); //собитие на нажатие input
+// разблокируем select количество мест на нажатие выбора комнат
+formValues.numberOfRooms.addEventListener('change', ()=>{ disabledItem(); }, {once: true});
+form.addEventListener('submit', (evt) => submittingForm(evt)); //событие на отправку формы

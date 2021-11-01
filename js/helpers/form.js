@@ -14,7 +14,7 @@ const formValues = {
   description: form.querySelector('.ad-form--description'), //описание
   photo: form.querySelector('.ad-form__photo'), //фотография
 };
-
+//переключение формы в активное и не активное состояние
 const switchForm = () =>{
   form.classList.toggle('ad-form--disabled');
   (form.querySelectorAll('.ad-form__element')).forEach((item)=>{
@@ -22,7 +22,7 @@ const switchForm = () =>{
   });
   document.querySelector('.map__filters').classList.toggle('map__filters--disabled');
 };
-
+//метод на отправку формы
 const submittingForm = (evt) =>{
   evt.preventDefault();
   switchForm();
@@ -36,6 +36,7 @@ const submittingForm = (evt) =>{
   console.log('кнопка нажата!');
 };
 
+const disabledItem = () => formValues.numberOfSeats.disabled = !formValues.numberOfSeats.disabled;
 
-export { switchForm, submittingForm, form };
+export { switchForm, submittingForm, form, formValues, disabledItem };
 
