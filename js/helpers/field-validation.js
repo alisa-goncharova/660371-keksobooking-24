@@ -6,10 +6,6 @@ const PRICE_MAX = 1000000;
 const PRICE_LENGTH = 0;
 
 const correctionLayout = (title, price, isTitle, isPrice) =>{
-  //здесь нужны раздельные условия для того чтобы выделить либо не правильный заголовок, либо цену, либо все вместе
-  // если сделать isTitle === false && isPrice === false, тогда вне зависимости от того, правильно указан title или price
-  // посвечивать будут все как не правильные
-  // и зайдите в Skype пожалуйста)
   if(isTitle === false) {
     title.style.borderColor = 'red';
   }
