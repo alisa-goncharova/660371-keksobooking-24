@@ -44,36 +44,19 @@ const getSelectedPrice = (formValues) => {
   });
 };
 
-const getSelectedTimeIn = (formValues) => {
-  let timeIn;
-  formValues.checkInTime.addEventListener('change', () => {
-    for(let i = 0; i <  formValues.checkInTime.length; i++){
-      if(formValues.checkInTime[i].selected === true){
-        timeIn = formValues.checkInTime[i];
+const getSelectedTime = (elemOne, elemTwo) => {
+  let time;
+  elemOne.addEventListener('change', () => {
+    for(let i = 0; i <  elemOne.length; i++){
+      if(elemOne[i].selected === true){
+        time = elemOne[i];
       }
     }
-    for(let i = 0; i < formValues.checkOutTime.length; i++){
-      if(formValues.checkOutTime[i].value === timeIn.value){
-        formValues.checkOutTime[i].selected = true;
-      }
-    }
-  });
-};
-
-const getSelectedTimeOut = (formValues) => {
-  let timeOut;
-  formValues.checkOutTime.addEventListener('change', () => {
-    for(let i = 0; i < formValues.checkOutTime.length; i++){
-      if(formValues.checkOutTime[i].selected === true){
-        timeOut = formValues.checkOutTime[i];
-      }
-    }
-    for(let i = 0; i < formValues.checkInTime.length; i++){
-      if(formValues.checkInTime[i].value ===  timeOut.value){
-        formValues.checkInTime[i].selected = true;
+    for(let i = 0; i < elemTwo.length; i++){
+      if(elemTwo[i].value === time.value){
+        elemTwo[i].selected = true;
       }
     }
   });
 };
-
-export { getSelectedItem, getSelectedPrice, getSelectedTimeIn, getSelectedTimeOut };
+export { getSelectedItem, getSelectedPrice, getSelectedTime };
