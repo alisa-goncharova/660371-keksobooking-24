@@ -20,8 +20,8 @@ const getSelectedItem = (formValues) =>{
 };
 
 const getSelectedPrice = (formValues) => {
-  let type;
-  let minPrice;
+  let type,
+    minPrice;
   formValues.typeOfHousing.addEventListener('change',() => {
     for(let i = 0; i < formValues.typeOfHousing.length; i++){
       if(formValues.typeOfHousing[i].selected === true){
@@ -33,6 +33,8 @@ const getSelectedPrice = (formValues) => {
     minPrice = getMinPrice(type.value);
     //присваиваем минимальную цену input = number (цена за ночь)
     formValues.nightPrice.value =  minPrice;
+    //меняем значение min на поле nightPrice в верстке
+    formValues.nightPrice.min = Number(minPrice);
   });
   formValues.nightPrice.addEventListener('change', () => {
     if(minPrice > formValues.nightPrice.value) {
@@ -41,4 +43,37 @@ const getSelectedPrice = (formValues) => {
     }
   });
 };
-export { getSelectedItem, getSelectedPrice };
+
+const getSelectedTimeIn = (formValues) => {
+  let timeIn;
+  formValues.checkInTime.addEventListener('change', () => {
+    for(let i = 0; i <  formValues.checkInTime.length; i++){
+      if(formValues.checkInTime[i].selected === true){
+        timeIn = formValues.checkInTime[i];
+      }
+    }
+    for(let i = 0; i < formValues.checkOutTime.length; i++){
+      if(formValues.checkOutTime[i].value === timeIn.value){
+        formValues.checkOutTime[i].selected = true;
+      }
+    }
+  });
+};
+
+const getSelectedTimeOut = (formValues) => {
+  let timeOut;
+  formValues.checkOutTime.addEventListener('change', () => {
+    for(let i = 0; i < formValues.checkOutTime.length; i++){
+      if(formValues.checkOutTime[i].selected === true){
+        timeOut = formValues.checkOutTime[i];
+      }
+    }
+    for(let i = 0; i < formValues.checkInTime.length; i++){
+      if(formValues.checkInTime[i].value ===  timeOut.value){
+        formValues.checkInTime[i].selected = true;
+      }
+    }
+  });
+};
+
+export { getSelectedItem, getSelectedPrice, getSelectedTimeIn, getSelectedTimeOut };
