@@ -27,13 +27,10 @@ const submittingForm = (evt) =>{
   evt.preventDefault();
   switchForm();
   if(fieldsValidation(formValues.noticeTitleInput, formValues.nightPrice)){
-    console.log('цена и объявления правильно введены');
     form.submit();
   } else {
-    console.log('форма отправлена не верно!');
     switchForm();
   }
-  console.log('кнопка нажата!');
 };
 
 const disabledItem = () => formValues.numberOfSeats.disabled = !formValues.numberOfSeats.disabled;

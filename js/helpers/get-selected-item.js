@@ -1,3 +1,5 @@
+import { getMinPrice } from './get-min-price.js';
+
 const getSelectedItem = (formValues) =>{
   const options = formValues.numberOfSeats;
   formValues.numberOfRooms.addEventListener('change', function() {
@@ -17,4 +19,26 @@ const getSelectedItem = (formValues) =>{
   });
 };
 
-export { getSelectedItem };
+const getSelectedPrice = (formValues) => {
+  let type;
+  let minPrice;
+  formValues.typeOfHousing.addEventListener('change',() => {
+    for(let i = 0; i < formValues.typeOfHousing.length; i++){
+      if(formValues.typeOfHousing[i].selected === true){
+        //узнаем выбранный тип: hotel и т.п.
+        type = formValues.typeOfHousing[i];
+      }
+    }
+    //узнаем минимальную цену для выбранного типа 0, 1000, 5000 и т.п.
+    minPrice = getMinPrice(type.value);
+    //присваиваем минимальную цену input = number (цена за ночь)
+    formValues.nightPrice.value =  minPrice;
+  });
+  formValues.nightPrice.addEventListener('change', () => {
+    if(minPrice > formValues.nightPrice.value) {
+      formValues.nightPrice.disabled = false;
+      formValues.nightPrice.value = String(Number(formValues.nightPrice.value) + 1);
+    }
+  });
+};
+export { getSelectedItem, getSelectedPrice };
