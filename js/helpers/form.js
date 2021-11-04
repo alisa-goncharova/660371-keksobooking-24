@@ -32,8 +32,10 @@ const submittingForm = (evt) =>{
     switchForm();
   }
 };
-
+const disabledAdress = () => {
+  formValues.address.disabled = true;
+};
 const disabledItem = () => formValues.numberOfSeats.disabled = !formValues.numberOfSeats.disabled;
 
-export { switchForm, submittingForm, form, formValues, disabledItem };
+export { switchForm, submittingForm, form, formValues, disabledItem, disabledAdress };
 

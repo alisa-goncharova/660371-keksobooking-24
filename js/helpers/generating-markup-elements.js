@@ -1,16 +1,16 @@
 import { getDataUsers } from './data.js';
 import { getDataCheckItem, getDataFeatures, getDataPhotos } from './get-data-check.js';
 
-const CONTAINER_HEIGHT = '100%', //временные стили, которые потом удалятся
-  CONTAINER_COLUMN = '2',
-  CONTAINER_PADDING = '40px 40px',
-  COUNT = 1;
-const dataUsers = Array.from({length: COUNT}, getDataUsers),
-  container = document.querySelector('.map__canvas');
+// const CONTAINER_HEIGHT = '100%', //временные стили, которые потом удалятся
+//   CONTAINER_COLUMN = '2',
+//   CONTAINER_PADDING = '40px 40px',
+const COUNT = 10;
+const dataUsers = Array.from({length: COUNT}, getDataUsers);
+const container = document.querySelector('.map__canvas');
 
-container.style.height = CONTAINER_HEIGHT;
-container.style.columnCount = CONTAINER_COLUMN;
-container.style.padding = CONTAINER_PADDING;
+// container.style.height = CONTAINER_HEIGHT;
+// container.style.columnCount = CONTAINER_COLUMN;
+// container.style.padding = CONTAINER_PADDING;
 //клонируем фрагмент
 const fragment = document.querySelector('#card');
 
@@ -34,4 +34,4 @@ const getGeneratingMarkupElements = () =>{
   });
 };
 
-export { getGeneratingMarkupElements };
+export { getGeneratingMarkupElements, dataUsers };
