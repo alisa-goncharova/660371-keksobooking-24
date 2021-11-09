@@ -14,7 +14,7 @@ const container = document.querySelector('.map__canvas');
 //клонируем фрагмент
 const fragment = document.querySelector('#card');
 
-const getGeneratingMarkupElements = () =>{
+const getGeneratingMarkupElements = () => {
   dataUsers.forEach((elem)=>{
     const recording = fragment.content.cloneNode(true);
     recording.querySelector('.popup__title').textContent = `${elem.offer.title}`;

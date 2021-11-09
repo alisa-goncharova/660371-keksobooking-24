@@ -1,5 +1,5 @@
 import { disabledAdress, formValues } from '../helpers/form.js';
-
+import { makeMarkerActive } from './make-marker-active.js';
 //задания поведения маркеру
 const getMarkerMovement = (marker) => {
   marker.on('moveend',(evt)=>{
@@ -8,6 +8,7 @@ const getMarkerMovement = (marker) => {
   })
     .on('click', (evt)=>{
       // clickMarker();
+      makeMarkerActive(marker);
       formValues.address.value = `${(evt.target.getLatLng().lat).toFixed(5)}, ${(evt.target.getLatLng().lng).toFixed(5)}`;
     });
 };
@@ -20,8 +21,8 @@ const getMapMarker = (map, lat, lng) => {
     iconAnchor: [26, 52],
   });
   const marker = L.marker(
-    [lat, lng], {icon: icon, draggable: true}).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
+    [lat, lng], {icon: icon, draggable: false}).addTo(map)
+    .bindPopup('какие-то данные');
   getMarkerMovement(marker);
   return marker;
 };

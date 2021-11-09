@@ -9,7 +9,7 @@ const getMainMarker = (map) => {
   });
   const marker = L.marker(
     [35.6892, 139.692], {icon: icon, draggable: true}).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
+    .bindPopup('Текст главной страницы');
   getMarkerMovement(marker);
 };
 
