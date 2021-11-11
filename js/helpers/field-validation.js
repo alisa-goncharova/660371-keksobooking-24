@@ -1,7 +1,3 @@
-import { getMinPrice } from './get-min-price.js';
-import { getSelectedPrice } from './get-selected-item.js';
-import { formValues } from './form.js';
-
 const TITLE_MIN = 30;
 const TITLE_MAX = 100;
 const PRICE_MAX = 1000000;
