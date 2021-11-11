@@ -1,4 +1,5 @@
 import {getDataCheckItem, getDataFeatures, getDataPhotos} from '../helpers/get-data-check.js';
+import {checkingValues} from './checking-values.js';
 
 const  createCustomPopup = (point) => {
   const fragment = document.querySelector('#card');
@@ -16,6 +17,8 @@ const  createCustomPopup = (point) => {
   // вывод фотографий
   getDataPhotos(point.photos, recording.querySelector('.popup__photos'));
   recording.querySelector('.popup__avatar').src = `${point.avatar}`;
+  //проверка на отсутсвия значений
+  checkingValues(recording);
   return recording;
 };
 export { createCustomPopup };
