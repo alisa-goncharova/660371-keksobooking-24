@@ -1,6 +1,8 @@
 import { switchForm } from '../helpers/form.js';
 import { points } from './get-points.js';
 import { createCustomPopup } from './ create-сustom-popup.js';
+import { clickMarker } from './click-marker.js';
+import {getMainMarker} from './get-main-marker.js';
 
 //отображение карты
 const getMap = () => {
@@ -26,8 +28,9 @@ const getMap = () => {
     marker
       .addTo(map)
       .bindPopup(createCustomPopup(point))
-      .on('click', () => { console.log(point);});
+      .on('click', () => { clickMarker(point); });
   });
+  getMainMarker(map);
   return map;
 };
 
