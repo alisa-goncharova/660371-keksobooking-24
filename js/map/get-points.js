@@ -1,6 +1,8 @@
 import { getDataUsers } from '../helpers/data.js';
+// import { getData } from '../api/get-data.js';
 
 const COUNT = 10;
+
 const points = (Array.from({length: COUNT}, getDataUsers)).map((elem) => ({
   avatar: elem.author.avatar,
   lat: elem.location.lat,

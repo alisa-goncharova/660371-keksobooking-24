@@ -1,12 +1,9 @@
 import { getRequest } from './get-request.js';
-
-let dataApi = [];
-const getData = async () => {
-  dataApi = await (getRequest({
+export const getData = async () => {
+  return getRequest({
     path: '/data',
     method: 'get',
-  }));
-  console.log(dataApi);
+  });
 };
-
-export { getData };
+//await лучше не трогать, иначе все ломается
+export const dataRecords = await getData().then((data) => data);

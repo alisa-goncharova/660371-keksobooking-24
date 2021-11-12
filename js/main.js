@@ -4,11 +4,16 @@ import { getSelectedItem, getSelectedPrice, getSelectedTime } from './helpers/ge
 // import { getMapDisplay } from './helpers/map.js';
 // import { getMap } from './helpers/getMap.js';
 import { getMap} from './map/get-map.js';
-import { getData } from './api/get-data.js';
+import { dataRecords } from './api/get-data.js';
 
-// getGeneratingMarkupElements(); // генерация фейковых данных
+
 switchForm(); // переключение формы в (не) активное состояние
-getData(); //получение всех данных;
+//проверка получения данных
+console.log(dataRecords);
+for(let i = 0; i < dataRecords.length; i++){
+  console.log(dataRecords[i]);
+}
+
 disabledItem(formValues.numberOfSeats);//блокируем изменение select количество мест
 disabledAdress(); //блокируем редактирование адресса
 getSelectedItem(formValues); //собитие на нажатие input (количество комнат, количество мест)
