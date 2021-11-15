@@ -17,26 +17,36 @@ const getDataFeatures = (data, container) =>{
   const userFeatures = data;
   const featureList = container.querySelectorAll('.popup__feature');
 
-  featureList.forEach((featureListItem)=>{
-    const res = userFeatures.some(
-      (userFeature) => featureListItem.classList.contains(`popup__feature--${userFeature}`),
-    );
-    if (!res) {
-      featureListItem.remove();
-    }
-  });
+  try {
+    featureList.forEach((featureListItem) => {
+      const res = userFeatures.some(
+        (userFeature) => featureListItem.classList.contains(`popup__feature--${userFeature}`),
+      );
+      if (!res) {
+        featureListItem.remove();
+      }
+    });
+  }
+  catch(e){
+    console.log(e);
+  }
 };
 
 const getDataPhotos = (data, container) =>{
   container.removeChild(container.querySelector('img'));
-  data.forEach((imageItem)=>{
-    const image = document.createElement('img');
-    image.src = imageItem;
-    image.classList.add('popup__photo');
-    image.style.width = IMAGE_WIDTH;
-    image.style.height = IMAGE_HEIGHT;
-    container.append(image);
-  });
+  try{
+    data.forEach((imageItem)=>{
+      const image = document.createElement('img');
+      image.src = imageItem;
+      image.classList.add('popup__photo');
+      image.style.width = IMAGE_WIDTH;
+      image.style.height = IMAGE_HEIGHT;
+      container.append(image);
+    });
+  }
+  catch (e) {
+    console.log(e);
+  }
 };
 export { getDataCheckItem, getDataFeatures, getDataPhotos };
 
