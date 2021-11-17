@@ -1,9 +1,4 @@
-// import { getRandomNumberInt, getMapCoordinates } from './get-random-number.js';
-// import { getFakeDataValue, getFakeDataValues,  PLACES, TIMES, FEATURES, PHOTOS } from './get-fake-data.js';
-// import { getAvatarData } from './get-avatar-data.js';
 import { dataRecords } from '../api/get-data.js';
-// import { getAvatarData } from './get-avatar-data.js';
-
 let index = 0;
 
 const getDataUsers = () =>{

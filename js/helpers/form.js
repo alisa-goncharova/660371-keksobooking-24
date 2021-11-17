@@ -1,4 +1,8 @@
 import { fieldsValidation } from './field-validation.js';
+import {setUserFormSubmit} from '../api/user-form.js';
+import { onSuccess } from '../api/get-success-message.js';
+import { onFail } from '../api/get-fail-message.js';
+
 //форма
 const form = document.querySelector('.ad-form');
 const formValues = {
@@ -27,7 +31,7 @@ const submittingForm = (evt) =>{
   evt.preventDefault();
   switchForm();
   if(fieldsValidation(formValues.noticeTitleInput, formValues.nightPrice)){
-    form.submit();
+    setUserFormSubmit(evt, onFail(), onSuccess());
   } else {
     switchForm();
   }

@@ -1,5 +1,5 @@
 const baseUrl = 'https://24.javascript.pages.academy/keksobooking';
-const getRequest = ({path, method, data}) =>{
+const getRequest = ({path, method = 'get', data}) =>{
   try{
     return fetch(`${baseUrl}${path}`, {
       method,
