@@ -11,6 +11,7 @@ const onSuccess = () => {
   const container = document.querySelector('.modal__success');
   container.appendChild(recording);
   hiddenModalSuccess();
+  alert('ok');
 };
 export { onSuccess };
 

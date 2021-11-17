@@ -5,6 +5,17 @@ const clickBntFail = () => {
   const errorModal = document.querySelector('.modal__error');
   button.addEventListener(('click'), ()=>{
     errorModal.classList.add('hidden');
+    // switchForm();
+  });
+  errorModal.addEventListener('keydown', (event) => {
+    const key = event.key; // const {key} = event; in ES6+
+    if (key === 'Escape') {
+      errorModal.classList.add('hidden');
+      switchForm();
+    }
+  });
+  errorModal.addEventListener('click', ()=>{
+    errorModal.classList.add('hidden');
     switchForm();
   });
 };

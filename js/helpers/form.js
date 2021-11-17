@@ -31,7 +31,7 @@ const submittingForm = (evt) =>{
   evt.preventDefault();
   switchForm();
   if(fieldsValidation(formValues.noticeTitleInput, formValues.nightPrice)){
-    setUserFormSubmit(evt, onFail(), onSuccess());
+    setUserFormSubmit(evt, onFail, onSuccess);
   } else {
     switchForm();
   }
