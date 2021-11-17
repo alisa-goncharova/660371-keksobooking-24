@@ -1,6 +1,8 @@
 import { switchForm, submittingForm,  form, formValues, disabledItem, disabledAdress } from './helpers/form.js';
 import { getSelectedItem, getSelectedPrice, getSelectedTime } from './helpers/get-selected-item.js';
 import { getMap} from './map/get-map.js';
+import { clickInputFilter } from './filter/get-form-filter.js';
+
 switchForm(); // переключение формы в (не) активное состояние
 disabledItem(formValues.numberOfSeats);//блокируем изменение select количество мест
 disabledAdress(); //блокируем редактирование адресса
@@ -11,5 +13,5 @@ form.addEventListener('submit', (evt) => submittingForm(evt)); //событие 
 getSelectedPrice(formValues); // синхронизация полей тип жилья и цена за ночь
 getSelectedTime(formValues.checkInTime , formValues.checkOutTime); // синхронизация полей день заезда
 getSelectedTime(formValues.checkOutTime, formValues.checkInTime); //и день выезда
-//отображения карты
-getMap();
+getMap();//отображения карты
+clickInputFilter(); //реакция на нажатие input в FormFilter

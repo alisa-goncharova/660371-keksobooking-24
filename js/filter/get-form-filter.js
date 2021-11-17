@@ -1,36 +1,26 @@
-//получаем значения options
-const getValues = (options) => {
-  let objectValues = {};
-  // let arr = [];
-  for(let i = 0; i < options.length; i++){
-    if(options[i].selected === true){
-      objectValues.key = options.id;
-      objectValues.value = options[i].value;
+import { getDataFilter } from './get-data-filter.js';
+
+let filterArr = [];
+
+//получаем саму форму фильтрации c объектами значений
+const getFormFilter = (evt) => {
+  evt.target.querySelectorAll('option').forEach((option)=>{
+    if(option.selected === true) {
+      filterArr.push(
+        new Object({
+          key: evt.target.id,
+          value: option.value,
+        }),
+      );
     }
-  }
-  // console.log(objectValues);
-};
-
-//получаем select'ы
-const getOptions = (formFilter) => {
-  for(let i = 0; i < formFilter.children.length; i++){
-    getValues(formFilter.children[i]);
-  }
-};
-
-//получаем саму форму фильтрации, навешиваем обработчик на клик
-const getFormFilter = () => {
-  const formFilter = document.querySelector('.map__filters');
-  formFilter.addEventListener('click', ()=>{
-    getOptions(formFilter);
   });
+  getDataFilter();
 };
 
-export { getFormFilter };
+const clickInputFilter = () => {
+  const form = document.querySelector('.map__filters');
+  form.addEventListener('change', getFormFilter);
+};
 
 
-// let type;
-// let price;
-// let numberOfRooms;
-// let guests;
-// console.log(formFilter.children);
+export { getFormFilter, clickInputFilter, filterArr };

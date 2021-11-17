@@ -2,8 +2,17 @@ import {switchForm} from '../helpers/form.js';
 
 const hiddenModalSuccess = () => {
   const successModal = document.querySelector('.modal__success');
-  setTimeout(()=> {
-    successModal.classList.add('hidden'); switchForm();}, 2000);
+  successModal.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (key === 'Escape') {
+      successModal.classList.add('hidden');
+      switchForm();
+    }
+  });
+  successModal.addEventListener('click', ()=>{
+    successModal.classList.add('hidden');
+    switchForm();
+  });
 };
 const onSuccess = () => {
   const fragment = document.querySelector('#success');
@@ -11,7 +20,6 @@ const onSuccess = () => {
   const container = document.querySelector('.modal__success');
   container.appendChild(recording);
   hiddenModalSuccess();
-  alert('ok');
 };
 export { onSuccess };
 
