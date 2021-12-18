@@ -3,6 +3,7 @@ import { points } from './get-points.js';
 import { createCustomPopup } from './ create-сustom-popup.js';
 import { clickMarker } from './click-marker.js';
 import {getMainMarker} from './get-main-marker.js';
+import {getDataFilter} from "../filter/get-data-filter.js";
 
 //отображение карты
 const getMap = () => {
